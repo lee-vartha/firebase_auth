@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Firebase auth</title>
+    <meta charset="UTF-8" />
+    <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js"></script>
+</head>
+<body>
+    <div id="app">
+        <form id="create-user" style="display: none">
+            <h3>Create User</h3>
+            <input type="text" name="email" placeholder="Email" />
+            <input type="password" name="password" placeholder="Password" />
+            <input type="text" name="bio" placeholder="One line bio" />
+            <button type="submit">Create</button>
+            <br>
+        </form>
+        
+        <form id="login-user" style="display: none">
+            <h3>Login User</h3>
+            <input type="text" name="email" placeholder="Email" />
+            <input type="password" name="password" placeholder="Password" />
+            <button type="submit">Login</button>
+            <br>
+        </form>
+
+        <button id="signout-user" style="display: none">Sign out</button>
+        
+        <form id="add-customer" style="display: none">
+            <input name="name" type="text" placeholder="Name" required>
+            <input name="age" type="number" placeholder="Age" required>
+            <button type="submit">Add customer</button>
+        </form>
+
+        <div id="user-info" style="display: none"></div>
+        <ul id="customer-list"></ul>
+    </div>
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyB_RDMEW2XErlAket9oWCaB8RgYn4lNV24",
+            authDomain: "web504-a2-lee-vartha.firebaseapp.com",
+            projectId: "web504-a2-lee-vartha",
+            storageBucket: "web504-a2-lee-vartha.appspot.com",
+            messagingSenderId: "111904444493",
+            appId: "1:111904444493:web:e95307c101cc6d405c0c04"
+        };
+        firebase.initializeApp(firebaseConfig);
+        // make auth and firestore references
+        const auth = firebase.auth()
+        const db = firebase.firestore()
+        // update firestore setting
+        db.settings({
+            timestampsInSnapshots: true
+        })
+    </script>
+    <script src="src/index.js">
+    </script>
+    <script src="src/auth.js">
+    </script>
+</body>
+</html>
